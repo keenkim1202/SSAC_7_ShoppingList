@@ -103,18 +103,13 @@ class ShoppingListViewController: UIViewController {
   }
   
   @IBAction func onCheckButton(_ sender: UIButton) {
-    sender.isSelected.toggle()
-    
-    switch sender.isSelected {
-    case true:
-      sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-    case false :
-      sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-    }
+    let index = sender.tag
+    shoppingList[index].isChecked.toggle()
   }
   
   @IBAction func onStarButton(_ sender: UIButton) {
-    sender.isSelected.toggle()
+    let index = sender.tag
+    shoppingList[index].isStared.toggle()
     
     switch sender.isSelected {
     case true:
@@ -123,7 +118,6 @@ class ShoppingListViewController: UIViewController {
       sender.setImage(UIImage(systemName: "star"), for: .normal)
     }
   }
-  
 }
 
 // MARK: Extension - UITableViewDelegate
@@ -163,6 +157,18 @@ extension ShoppingListViewController: UITableViewDataSource {
     
     let item = shoppingList[indexPath.row]
     cell.titleLabel.text = item.name
+    
+    if item.isChecked {
+      cell.checkButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+    } else {
+      cell.checkButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+    }
+    
+    if item.isStared {
+      cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+    } else {
+      cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+    }
     
     cell.selectionStyle = .none
     return cell
