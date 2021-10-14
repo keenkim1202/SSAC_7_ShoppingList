@@ -37,12 +37,21 @@ class ShoppingListViewController: UIViewController {
     
     addButton.layer.cornerRadius = CGFloat(8)
     addCardView.layer.cornerRadius = CGFloat(8)
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+    tapGesture.cancelsTouchesInView = true
+    tableView.addGestureRecognizer(tapGesture)
+  }
+  
+  @objc func hideKeyboard() {
+    self.tableView.endEditing(true)
   }
   
   fileprivate func failAlert(_ message: String) {
     UIAlertController.show(self, contentType: .error, message: message)
   }
   
+  // MARK: Managing Data
   func loadData() {
     let userDefaults = UserDefaults.standard
     
@@ -86,6 +95,7 @@ class ShoppingListViewController: UIViewController {
         let shoppingItem = ShoppingItem(name: itemName)
         shoppingList.append(shoppingItem)
         textField.text = ""
+        textField.endEditing(true)
       }
     } else {
       failAlert("목록 추가에 실패하였습니다.\n다시시도 해주세요!")
@@ -102,7 +112,7 @@ class ShoppingListViewController: UIViewController {
       sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
     }
   }
-
+  
   @IBAction func onStarButton(_ sender: UIButton) {
     sender.isSelected.toggle()
     
