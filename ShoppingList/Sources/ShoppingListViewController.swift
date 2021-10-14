@@ -156,23 +156,8 @@ extension ShoppingListViewController: UITableViewDataSource {
     cell.cellBackgroundView.layer.cornerRadius = CGFloat(8)
     
     let item = shoppingList[indexPath.row]
-    cell.titleLabel.text = item.name
+    cell.cellConfigure(item)
     
-    if item.isChecked {
-      cell.checkButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-      cell.cellBackgroundView.backgroundColor = UIColor(named: "CheckedCellColor")
-    } else {
-      cell.checkButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-      cell.cellBackgroundView.backgroundColor = UIColor(named: "NotCheckedCellColor")
-    }
-    
-    if item.isStared {
-      cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-    } else {
-      cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
-    }
-    
-    cell.selectionStyle = .none
     return cell
   }
 }
