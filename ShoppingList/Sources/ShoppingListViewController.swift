@@ -85,6 +85,17 @@ extension ShoppingListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 70
   }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      items.remove(at: indexPath.row)
+      tableView.reloadData()
+    }
+  }
 }
 
 // MARK: Extension - UITableViewDataSource
@@ -107,6 +118,7 @@ extension ShoppingListViewController: UITableViewDataSource {
     let item = items[indexPath.row]
     cell.titleLabel.text = item.name
     
+    cell.selectionStyle = .none
     return cell
   }
 }
