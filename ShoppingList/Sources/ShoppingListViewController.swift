@@ -160,8 +160,10 @@ extension ShoppingListViewController: UITableViewDataSource {
     
     if item.isChecked {
       cell.checkButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+      cell.cellBackgroundView.backgroundColor = UIColor(named: "CheckedCellColor")
     } else {
       cell.checkButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+      cell.cellBackgroundView.backgroundColor = UIColor(named: "NotCheckedCellColor")
     }
     
     if item.isStared {
