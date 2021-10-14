@@ -38,6 +38,16 @@ class ShoppingListViewController: UIViewController {
     print("add button tapped.")
   }
   
+  @IBAction func onCheckButton(_ sender: UIButton) {
+    sender.isSelected.toggle()
+    
+    switch sender.isSelected {
+    case true:
+      sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+    case false :
+      sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+    }
+  }
 }
 
 // MARK: Extension - UITableViewDelegate
@@ -55,7 +65,7 @@ extension ShoppingListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingListTableViewCell.identifier) as? ShoppingListTableViewCell else { return UITableViewCell() }
-    
+    cell.checkButton.tag = indexPath.row
     cell.cellBackgroundView.layer.cornerRadius = CGFloat(8)
     cell.titleLabel.text = dummyData[indexPath.row]
     return cell
