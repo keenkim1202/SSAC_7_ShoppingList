@@ -48,6 +48,18 @@ class ShoppingListViewController: UIViewController {
       sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
     }
   }
+
+  @IBAction func onStarButton(_ sender: UIButton) {
+    sender.isSelected.toggle()
+    
+    switch sender.isSelected {
+    case true:
+      sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+    case false :
+      sender.setImage(UIImage(systemName: "star"), for: .normal)
+    }
+  }
+  
 }
 
 // MARK: Extension - UITableViewDelegate
@@ -66,6 +78,8 @@ extension ShoppingListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingListTableViewCell.identifier) as? ShoppingListTableViewCell else { return UITableViewCell() }
     cell.checkButton.tag = indexPath.row
+    cell.starButton.tag = indexPath.row
+    
     cell.cellBackgroundView.layer.cornerRadius = CGFloat(8)
     cell.titleLabel.text = dummyData[indexPath.row]
     return cell

@@ -83,10 +83,10 @@
                                                     <rect key="frame" x="8" y="8" width="398" height="54"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="666-hw-emy">
-                                                            <rect key="frame" x="16" y="11.5" width="366" height="31"/>
+                                                            <rect key="frame" x="16" y="16" width="366" height="22"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hk-Dd-2M8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="19.5" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                     <color key="tintColor" systemColor="systemGreenColor"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="checkmark.square" catalog="system"/>
@@ -95,16 +95,19 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="쇼핑 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0y-T2-xF5">
-                                                                    <rect key="frame" x="19.5" y="0.0" width="299.5" height="31"/>
+                                                                    <rect key="frame" x="19.5" y="0.0" width="324.5" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49d-oG-phn">
-                                                                    <rect key="frame" x="319" y="0.0" width="47" height="31"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49d-oG-phn">
+                                                                    <rect key="frame" x="344" y="0.0" width="22" height="22"/>
                                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="star" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="onStarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B5r-nI-IXp"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
