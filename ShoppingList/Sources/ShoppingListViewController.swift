@@ -50,6 +50,7 @@ class ShoppingListViewController: UIViewController {
       } else {
         let shoppingItem = ShoppingItem(name: itemName)
         items.append(shoppingItem)
+        textField.text = ""
       }
     } else {
       failAlert("목록 추가에 실패하였습니다.\n다시시도 해주세요!")
