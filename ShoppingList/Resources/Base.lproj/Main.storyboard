@@ -27,22 +27,24 @@
                                             <rect key="frame" x="8" y="8" width="398" height="64"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-NG-0L6">
-                                                    <rect key="frame" x="10" y="16.5" width="378" height="31"/>
+                                                    <rect key="frame" x="16" y="17" width="366" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="무엇을 구매할 예정인가요?" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="F8g-iN-Dqf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="292" height="31"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="282.5" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYw-x4-o4k">
-                                                            <rect key="frame" x="308" y="0.0" width="70" height="31"/>
+                                                            <rect key="frame" x="298.5" y="0.0" width="67.5" height="30"/>
                                                             <color key="backgroundColor" red="0.5624020693205759" green="0.92812895232980908" blue="0.58521799164184363" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="bYw-x4-o4k" secondAttribute="height" multiplier="70:31" id="PAb-k5-G9V"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" red="0.0" green="0.44501256461095329" blue="0.054241939582041078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="추가"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="추가">
+                                                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="onAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKz-7V-CQG"/>
                                                             </connections>
@@ -56,9 +58,9 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.90538978334815157" green="0.91184533544701574" blue="0.93121199174360791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="HYQ-NG-0L6" secondAttribute="trailing" constant="10" id="FbI-WL-uZY"/>
+                                                <constraint firstAttribute="trailing" secondItem="HYQ-NG-0L6" secondAttribute="trailing" constant="16" id="FbI-WL-uZY"/>
                                                 <constraint firstItem="HYQ-NG-0L6" firstAttribute="centerX" secondItem="dZr-j1-j0U" secondAttribute="centerX" id="GCH-Aa-OfI"/>
-                                                <constraint firstItem="HYQ-NG-0L6" firstAttribute="leading" secondItem="dZr-j1-j0U" secondAttribute="leading" constant="10" id="ZYh-gc-ffU"/>
+                                                <constraint firstItem="HYQ-NG-0L6" firstAttribute="leading" secondItem="dZr-j1-j0U" secondAttribute="leading" constant="16" id="ZYh-gc-ffU"/>
                                                 <constraint firstItem="HYQ-NG-0L6" firstAttribute="centerY" secondItem="dZr-j1-j0U" secondAttribute="centerY" id="x3W-ds-xse"/>
                                             </constraints>
                                         </view>
@@ -82,7 +84,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekW-Jm-1Uv">
                                                     <rect key="frame" x="8" y="8" width="398" height="54"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="666-hw-emy">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="666-hw-emy">
                                                             <rect key="frame" x="16" y="16" width="366" height="22"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hk-Dd-2M8">
@@ -95,8 +97,8 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="쇼핑 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0y-T2-xF5">
-                                                                    <rect key="frame" x="19.5" y="0.0" width="324.5" height="22"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="29.5" y="0.0" width="304.5" height="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
