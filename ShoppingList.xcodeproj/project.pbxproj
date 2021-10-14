@@ -15,6 +15,7 @@
 		1C3320B92716CF15008A9A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3320B72716CF15008A9A83 /* LaunchScreen.storyboard */; };
 		1C504C7A2717DECD00229449 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C504C792717DECD00229449 /* ShoppingListTableViewCell.swift */; };
 		1C504C7C2717E35300229449 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C504C7B2717E35300229449 /* ShoppingItem.swift */; };
+		1C504C84271802BF00229449 /* Extension++UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C504C83271802BF00229449 /* Extension++UIAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1C3320BA2716CF15008A9A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C504C792717DECD00229449 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		1C504C7B2717E35300229449 /* ShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
+		1C504C83271802BF00229449 /* Extension++UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension++UIAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		1C504C7E2717F68300229449 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1C504C82271802AE00229449 /* Extensions */,
 				1C3320AC2716CF13008A9A83 /* AppDelegate.swift */,
 				1C3320AE2716CF13008A9A83 /* SceneDelegate.swift */,
 				1C504C812717F6E900229449 /* ViewControllers */,
@@ -111,6 +114,14 @@
 				1C3320B02716CF13008A9A83 /* ShoppingListViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C504C82271802AE00229449 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C504C83271802BF00229449 /* Extension++UIAlert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			files = (
 				1C3320B12716CF13008A9A83 /* ShoppingListViewController.swift in Sources */,
 				1C504C7A2717DECD00229449 /* ShoppingListTableViewCell.swift in Sources */,
+				1C504C84271802BF00229449 /* Extension++UIAlert.swift in Sources */,
 				1C3320AD2716CF13008A9A83 /* AppDelegate.swift in Sources */,
 				1C504C7C2717E35300229449 /* ShoppingItem.swift in Sources */,
 				1C3320AF2716CF13008A9A83 /* SceneDelegate.swift in Sources */,

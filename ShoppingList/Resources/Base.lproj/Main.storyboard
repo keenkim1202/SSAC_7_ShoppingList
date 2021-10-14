@@ -136,6 +136,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📝 쇼핑 리스트가 비어있어요! 🤔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvX-ps-le8">
+                                <rect key="frame" x="81" y="463.5" width="252.5" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -144,12 +150,15 @@
                             <constraint firstItem="6De-Cr-ErX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kqe-sv-ngC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6De-Cr-ErX" secondAttribute="bottom" id="ZUh-RI-DYX"/>
                             <constraint firstItem="6De-Cr-ErX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cgR-SC-N7r"/>
+                            <constraint firstItem="nvX-ps-le8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h38-Me-8Us"/>
+                            <constraint firstItem="nvX-ps-le8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="viA-TQ-PjI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="쇼핑" id="DAW-Pj-BPj"/>
                     <connections>
                         <outlet property="addButton" destination="bYw-x4-o4k" id="Rri-5s-uPH"/>
                         <outlet property="addCardView" destination="dZr-j1-j0U" id="zbD-wW-lQd"/>
+                        <outlet property="emptyLabel" destination="nvX-ps-le8" id="FDj-Jo-2ac"/>
                         <outlet property="tableView" destination="6De-Cr-ErX" id="BRL-fu-7nI"/>
                         <outlet property="textField" destination="F8g-iN-Dqf" id="u38-bH-hnc"/>
                     </connections>
