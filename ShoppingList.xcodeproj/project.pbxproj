@@ -80,12 +80,12 @@
 		1C504C7E2717F68300229449 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1C504C82271802AE00229449 /* Extensions */,
 				1C3320AC2716CF13008A9A83 /* AppDelegate.swift */,
 				1C3320AE2716CF13008A9A83 /* SceneDelegate.swift */,
+				1C504C82271802AE00229449 /* Extensions */,
+				1C504C7D2717E3C100229449 /* Model */,
 				1C504C812717F6E900229449 /* ViewControllers */,
 				1C504C802717F6C100229449 /* Views */,
-				1C504C7D2717E3C100229449 /* Model */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
