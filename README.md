@@ -10,5 +10,19 @@
 
 # 기능명세 (10/14)
 - [x] 쇼핑리스트 목록, 구매 여부(체크박스), 즐겨찾기 3가지 정보르 구조체로 구성합니다.
-- [ ] 구조체 배열을 통해 테이블뷰에 목록을 보여주게 되며, 목록이 추가/삭제 될 때마다 UserDefaluts에 저장됩니다.
-- [ ] 구매여부, 즐겨찾기 기능 구현으 자유입니다.
+- [x] 구조체 배열을 통해 테이블뷰에 목록을 보여주게 되며, 목록이 추가/삭제 될 때마다 UserDefaluts에 저장됩니다.
+- [x] 구매여부, 즐겨찾기 기능 구현은 자유입니다.
+
+# 추가 구현 사항 
+- [x] 쇼핑 목록이 없을 시, '쇼핑 리스트가 비어있어요!' 문구 출력
+- [x] 체크박스르 체크하면 cell의 색을 초록색으로 변경 
+
+# 더 추가하면 어떨까?
+- 즐겨찾기, 구매 전, 구매 완료ㄹ section 별ㄹ 나누어 보여주기
+- 모두 구매를 완료하면 축하 문구 띄우기
+
+|참조 이미지||구현 앱 UI|
+|:---:|:---:|:--:|
+|<img width="100%" src="https://user-images.githubusercontent.com/59866819/137284021-c1b79fac-c50a-4154-8dc8-d11b33adde24.png" />|<img width="120" src="https://user-images.githubusercontent.com/59866819/135194858-4405d3a0-0de3-4ca6-a594-3b08e0ae951b.png" />|<img width="60%" src="https://user-images.githubusercontent.com/59866819/137284035-a0895144-599f-468b-b65d-7348f55fae80.png" />
+# 실행 영상
+<p align="center"><img width="30%" src="https://user-images.githubusercontent.com/59866819/137284039-432e22a6-05ff-403c-80b1-b557f72a0b7b.mp4" /></p>
