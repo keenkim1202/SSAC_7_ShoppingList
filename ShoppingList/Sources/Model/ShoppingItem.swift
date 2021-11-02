@@ -6,9 +6,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct ShoppingItem {
-  var name: String
-  var isChecked: Bool = false
-  var isStared: Bool = false
+class ShoppingItem: Object {
+  @Persisted var name: String
+  @Persisted var isChecked: Bool
+  @Persisted var isStared: Bool
+
+  @Persisted(primaryKey: true) var _id: ObjectId
+  
+  convenience init(name: String) {
+    self.init()
+    
+    self.name = name
+    self.isChecked = false
+    self.isStared = false
+  }
 }
