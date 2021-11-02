@@ -78,6 +78,7 @@ class ShoppingListViewController: UIViewController {
     try! localRealm.write {
       taskToUpdate.isChecked.toggle()
     }
+    tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
   }
   
   @IBAction func onStarButton(_ sender: UIButton) {
@@ -92,6 +93,7 @@ class ShoppingListViewController: UIViewController {
     case false :
       sender.setImage(UIImage(systemName: "star"), for: .normal)
     }
+    tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
   }
 }
 
