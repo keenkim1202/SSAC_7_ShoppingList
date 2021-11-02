@@ -16,6 +16,8 @@
 # 추가 구현 사항 
 - [x] 쇼핑 목록이 없을 시, '쇼핑 리스트가 비어있어요!' 문구 출력
 - [x] 체크박스르 체크하면 cell의 색을 초록색으로 변경 
+- [x] feature/useUserDefaults 브랜치에 userDefaults르 사용하여 데이터를 저장 
+- [x] feature/useRealm 브랜치에 realm을 사용하여 데이터를 저장 
 
 # 더 추가하면 어떨까?
 - 즐겨찾기, 구매 전, 구매 완료ㄹ section 별ㄹ 나누어 보여주기
