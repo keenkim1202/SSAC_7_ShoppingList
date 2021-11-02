@@ -6,15 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ShoppingListViewController: UIViewController {
   
   // MARK: Properties
-  var shoppingList: [ShoppingItem] = [] {
-    didSet {
-      saveData()
-    }
-  }
+  let localRealm = try! Realm()
+  var tasks: Results<ShoppingItem>!
   
   // MARK: UI
   @IBOutlet weak var tableView: UITableView!
@@ -26,8 +24,8 @@ class ShoppingListViewController: UIViewController {
   // MARK: View Life-Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    print(#function)
     configure()
-    loadData()
   }
   
   // MARK: Configure
@@ -41,6 +39,8 @@ class ShoppingListViewController: UIViewController {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     tapGesture.cancelsTouchesInView = true
     tableView.addGestureRecognizer(tapGesture)
+    
+    tasks = localRealm.objects(ShoppingItem.self)
   }
   
   @objc func hideKeyboard() {
@@ -51,51 +51,21 @@ class ShoppingListViewController: UIViewController {
     UIAlertController.show(self, contentType: .error, message: message)
   }
   
-  // MARK: Managing Data
-  func loadData() {
-    let userDefaults = UserDefaults.standard
-    
-    if let data = userDefaults.object(forKey: "shoppingList") as? [[String: Any]] {
-      var list = [ShoppingItem]()
-      
-      for d in data {
-        guard let name = d["name"] as? String else { return }
-        guard let isChecked = d["isChecked"] as? Bool else { return }
-        guard let isStarrted = d["isStarred"] as? Bool else { return }
-        
-        list.append(ShoppingItem(name: name, isChecked: isChecked, isStared: isStarrted))
-      }
-      self.shoppingList = list
-    }
-  }
-  
-  func saveData() {
-    var list: [[String: Any]] = []
-    
-    for item in shoppingList {
-      let data: [String: Any] = [
-        "name": item.name,
-        "isChecked": item.isChecked,
-        "isStarred": item.isStared
-      ]
-      list.append(data)
-    }
-    let userDefaults = UserDefaults.standard
-    userDefaults.set(list, forKey: "shoppingList")
-    
-    tableView.reloadData()
-  }
-  
   // MARK: Action
   @IBAction func onAddButton(_ sender: UIButton) {
     if let itemName = textField.text {
       if itemName.isEmpty {
         failAlert("목록이름이 비어있습니다!\n작성 후 다시시도 해주세요.")
       } else {
-        let shoppingItem = ShoppingItem(name: itemName)
-        shoppingList.append(shoppingItem)
+        let task = ShoppingItem(name: textField.text!)
+        try! localRealm.write {
+          localRealm.add(task)
+        }
         textField.text = ""
         textField.endEditing(true)
+        
+        tasks = localRealm.objects(ShoppingItem.self)
+        tableView.reloadData()
       }
     } else {
       failAlert("목록 추가에 실패하였습니다.\n다시시도 해주세요!")
@@ -104,13 +74,18 @@ class ShoppingListViewController: UIViewController {
   
   @IBAction func onCheckButton(_ sender: UIButton) {
     let index = sender.tag
-    shoppingList[index].isChecked.toggle()
+    let taskToUpdate = tasks[index]
+    try! localRealm.write {
+      taskToUpdate.isChecked.toggle()
+    }
   }
   
   @IBAction func onStarButton(_ sender: UIButton) {
     let index = sender.tag
-    shoppingList[index].isStared.toggle()
-    
+    let taskToUpdate = tasks[index]
+    try! localRealm.write {
+      taskToUpdate.isStared.toggle()
+    }
     switch sender.isSelected {
     case true:
       sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -132,7 +107,10 @@ extension ShoppingListViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      shoppingList.remove(at: indexPath.row)
+      let taskToDelete = tasks[indexPath.row]
+      try! localRealm.write {
+        localRealm.delete(taskToDelete)
+      }
       tableView.reloadData()
     }
   }
@@ -141,12 +119,12 @@ extension ShoppingListViewController: UITableViewDelegate {
 // MARK: Extension - UITableViewDataSource
 extension ShoppingListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if shoppingList.count == 0 {
+    if tasks.count == 0 {
       emptyLabel.textColor = .black
     } else {
       emptyLabel.textColor = .clear
     }
-    return shoppingList.count
+    return tasks.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,7 +133,7 @@ extension ShoppingListViewController: UITableViewDataSource {
     cell.starButton.tag = indexPath.row
     cell.cellBackgroundView.layer.cornerRadius = CGFloat(8)
     
-    let item = shoppingList[indexPath.row]
+    let item = tasks[indexPath.row]
     cell.cellConfigure(item)
     
     return cell
