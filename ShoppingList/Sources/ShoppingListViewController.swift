@@ -8,13 +8,18 @@
 import UIKit
 import RealmSwift
 
-// TODO: 정렬 action Sheet 만들기
+// TODO: 정렬은 하되, DB 내에서는 바꾸지 않았음 (정렬된 결과가 DB에   반영되도록 할까, 말까)
 
 class ShoppingListViewController: UIViewController {
   
   // MARK: Properties
   let localRealm = try! Realm()
-  var tasks: Results<ShoppingItem>!
+  var tasks: Results<ShoppingItem>! {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  var sortedTasks: Results<ShoppingItem>!
   
   // MARK: UI
   @IBOutlet weak var tableView: UITableView!
@@ -54,13 +59,23 @@ class ShoppingListViewController: UIViewController {
     UIAlertController.show(self, contentType: .error, message: message)
   }
   
+  func sortList(action: UIAlertAction) {
+    tasks = tasks.sorted(byKeyPath: "name")
+  }
+  
   // MARK: Action
   @IBAction func onSortButton(_ sender: UIBarButtonItem) {
     let actionSheet = UIAlertController(title: nil, message: "정렬 기준을 선택하세요.", preferredStyle: .actionSheet)
     
-    let todoAction = UIAlertAction(title: "할 일 순", style: .default, handler: nil)
-    let favoriteAction = UIAlertAction(title: "즐겨찾기 순", style: .default, handler: nil)
-    let byNameActoin = UIAlertAction(title: "제목 순", style: .default, handler: nil)
+    let todoAction = UIAlertAction(title: "할 일 순", style: .default) { _ in
+      self.tasks = self.tasks.sorted(byKeyPath: "isChecked",ascending: true)
+    }
+    let favoriteAction = UIAlertAction(title: "즐겨찾기 순", style: .default) { _ in
+      self.tasks = self.tasks.sorted(byKeyPath: "isStared", ascending: false)
+    }
+    let byNameActoin = UIAlertAction(title: "제목 순", style: .default) { _ in
+      self.tasks = self.tasks.sorted(byKeyPath: "name")
+    }
     let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
   
     actionSheet.addAction(todoAction)
