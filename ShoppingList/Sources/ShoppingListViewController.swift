@@ -8,6 +8,8 @@
 import UIKit
 import RealmSwift
 
+// TODO: 정렬 action Sheet 만들기
+
 class ShoppingListViewController: UIViewController {
   
   // MARK: Properties
@@ -24,8 +26,9 @@ class ShoppingListViewController: UIViewController {
   // MARK: View Life-Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(#function)
     configure()
+    print("Realm Location: ", localRealm.configuration.fileURL)
+    print("tasks: \(tasks)")
   }
   
   // MARK: Configure
@@ -52,6 +55,22 @@ class ShoppingListViewController: UIViewController {
   }
   
   // MARK: Action
+  @IBAction func onSortButton(_ sender: UIBarButtonItem) {
+    let actionSheet = UIAlertController(title: nil, message: "정렬 기준을 선택하세요.", preferredStyle: .actionSheet)
+    
+    let todoAction = UIAlertAction(title: "할 일 순", style: .default, handler: nil)
+    let favoriteAction = UIAlertAction(title: "즐겨찾기 순", style: .default, handler: nil)
+    let byNameActoin = UIAlertAction(title: "제목 순", style: .default, handler: nil)
+    let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+  
+    actionSheet.addAction(todoAction)
+    actionSheet.addAction(favoriteAction)
+    actionSheet.addAction(byNameActoin)
+    actionSheet.addAction(cancelAction)
+    
+    self.present(actionSheet, animated: true, completion: nil)
+  }
+  
   @IBAction func onAddButton(_ sender: UIButton) {
     if let itemName = textField.text {
       if itemName.isEmpty {
